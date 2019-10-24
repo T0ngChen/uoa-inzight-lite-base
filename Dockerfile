@@ -27,9 +27,7 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 381BA480 \
                        gfortran \
     
     && R -e "install.packages('RJSONIO', repos = 'https://cran.r-project.org', type = 'source', dependencies = TRUE)" \
-    && R -e "install.packages('iNZightMR', repos = 'http://r.docker.stat.auckland.ac.nz/R/')" \ 
     && R -e "install.packages(c('gridExtra', 'tidyr', 'dplyr', 'forcats'), repos = 'https://cran.r-project.org', type = 'source', dependencies = TRUE)" \
-    && R -e "install.packages('iNZightTS', repos = 'http://r.docker.stat.auckland.ac.nz/R/')" \ 
     && R -e "install.packages('car', repos = 'https://cran.r-project.org', type = 'source', dependencies = TRUE)" \
 
     && R -e "install.packages('hextri', repos = 'https://cran.r-project.org', type = 'source', dependencies = TRUE)" \
@@ -54,16 +52,18 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 381BA480 \
     && R -e "install.packages('GGally', repos = 'https://cran.r-project.org', type = 'source', dependencies = TRUE)" \
     && R -e "install.packages('gpairs', repos = 'https://cran.r-project.org', type = 'source', dependencies = TRUE)" \
     && R -e "install.packages('xlsx', repos = 'https://cran.r-project.org', type = 'source', dependencies = TRUE)" \
-
-    && R -e "install.packages('iNZightRegression', repos = 'http://r.docker.stat.auckland.ac.nz/R/')" \ 
-
+    && R -e "install.packages('shinyWidgets', repos = 'https://cran.r-project.org', type = 'source', dependencies = TRUE)" \
     && R -e "install.packages('s20x', repos = 'https://cran.r-project.org', type = 'source', dependencies = TRUE)" \
-    && R -e "install.packages('iNZightPlots', repos = 'http://r.docker.stat.auckland.ac.nz/R/')" \
-    && R -e "install.packages('iNZightMaps', repos = 'http://r.docker.stat.auckland.ac.nz/R/')" \ 
 
     && R -e "install.packages('sf', repos = 'https://cran.r-project.org', type = 'source', dependencies = TRUE)" \
 
     && R -e "install.packages('devtools', repos = 'https://cran.r-project.org', type = 'source', dependencies = TRUE)" \
     && R -e "devtools::install_github('tidyverse/ggplot2')" \
+    && R -e "devtools::install_github('iNZightVIT/iNZightPlots')" \
+    && R -e "devtools::install_github('iNZightVIT/iNZightTS')"\
+    && R -e "devtools::install_github('iNZightVIT/iNZightTools')"\
+    && R -e "devtools::install_github('iNZightVIT/iNZightMaps')"\
+    && R -e "devtools::install_github('iNZightVIT/iNZightRegression')"\
+    && R -e "devtools::install_github('iNZightVIT/iNZightMR')"\
     
     && rm -rf /tmp/* /var/tmp/*
