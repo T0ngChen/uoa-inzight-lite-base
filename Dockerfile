@@ -12,7 +12,6 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 381BA480 \
     && apt-get install -y -q \
                        default-jre\
                        default-jdk \
-                       libcurl4-gnutls-dev \
                        libcurl4-openssl-dev \
                        libv8-3.14-dev \
                        libgdal-dev \
