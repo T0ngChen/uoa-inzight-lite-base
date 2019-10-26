@@ -12,12 +12,18 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 381BA480 \
     && apt-get install -y -q \
                        default-jdk \
                        libcurl4-openssl-dev \
-                       libmariadbclient-dev \
+                       libv8-3.14-dev \
+                       libgdal-dev \
+                       libproj-dev \
+                       libprotobuf-dev \
+                       protobuf-compiler \
+                       libudunits2-dev \
+                       libgeos-dev \
                        libpq-dev \
-                       libx11-dev \
+                       libjq-dev \
                        mesa-common-dev \
                        libglu1-mesa-dev \
-                       libgdal-dev \
+                       gfortran \
     && R -e "install.packages('RJSONIO', repos = 'https://cran.r-project.org', type = 'source', dependencies = TRUE)" \
     && R -e "install.packages(c('gridExtra', 'tidyr', 'dplyr', 'forcats'), repos = 'https://cran.r-project.org', type = 'source', dependencies = TRUE)" \
     && R -e "install.packages('car', repos = 'https://cran.r-project.org', type = 'source', dependencies = TRUE)" \
