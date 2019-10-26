@@ -10,6 +10,7 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 381BA480 \
     && echo "deb http://deb.debian.org/debian stretch main" | sudo tee -a /etc/apt/sources.list \
     && apt-get update -y -q \
     && apt-get install -y -q \
+    &&                 default-jdk \
     &&                 libcurl4-openssl-dev \
     &&                 libmariadbclient-dev \
     &&                 libpq-dev \
