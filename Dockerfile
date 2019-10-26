@@ -9,6 +9,14 @@ ENV BUILD_DATE "2019-10-25"
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 381BA480 \
     && echo "deb http://deb.debian.org/debian stretch main" | sudo tee -a /etc/apt/sources.list \
     && apt-get update -y -q \
+    && apt-get install -y -q \
+    &&                 libcurl4-openssl-dev \
+    &&                 libmariadbclient-dev \
+    &&                 libpq-dev \
+    &&                 libx11-dev \
+    &&                 mesa-common-dev \
+    &&                 libglu1-mesa-dev \
+    &&                 libgdal-dev \
     && R -e "install.packages('RJSONIO', repos = 'https://cran.r-project.org', type = 'source', dependencies = TRUE)" \
     && R -e "install.packages(c('gridExtra', 'tidyr', 'dplyr', 'forcats'), repos = 'https://cran.r-project.org', type = 'source', dependencies = TRUE)" \
     && R -e "install.packages('car', repos = 'https://cran.r-project.org', type = 'source', dependencies = TRUE)" \
@@ -36,9 +44,9 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 381BA480 \
     && R -e "devtools::install_github('tidyverse/ggplot2')" \
     && R -e "devtools::install_github('iNZightVIT/iNZightPlots')" \
     && R -e "devtools::install_github('iNZightVIT/iNZightTS')"\
-    && R -e "devtools::install_github('iNZightVIT/iNZightTools')"\
-    && R -e "devtools::install_github('iNZightVIT/iNZightMaps')"\
-    && R -e "devtools::install_github('iNZightVIT/iNZightRegression')"\
-    && R -e "devtools::install_github('iNZightVIT/iNZightMR')"\
-    && R -e "devtools::install_deps()"\
+    && R -e "devtools::install_github('iNZightVIT/iNZightTools')" \
+    && R -e "devtools::install_github('iNZightVIT/iNZightMaps')" \
+    && R -e "devtools::install_github('iNZightVIT/iNZightRegression')" \
+    && R -e "devtools::install_github('iNZightVIT/iNZightMR')" \
+    && R -e "devtools::install_deps()" \
     && rm -rf /tmp/* /var/tmp/*
