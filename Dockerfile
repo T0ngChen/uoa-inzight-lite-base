@@ -10,14 +10,14 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 381BA480 \
     && echo "deb http://deb.debian.org/debian stretch main" | sudo tee -a /etc/apt/sources.list \
     && apt-get update -y -q \
     && apt-get install -y -q \
-    &&                 default-jdk \
-    &&                 libcurl4-openssl-dev \
-    &&                 libmariadbclient-dev \
-    &&                 libpq-dev \
-    &&                 libx11-dev \
-    &&                 mesa-common-dev \
-    &&                 libglu1-mesa-dev \
-    &&                 libgdal-dev \
+                       default-jdk \
+                       libcurl4-openssl-dev \
+                       libmariadbclient-dev \
+                       libpq-dev \
+                       libx11-dev \
+                       mesa-common-dev \
+                       libglu1-mesa-dev \
+                       libgdal-dev \
     && R -e "install.packages('RJSONIO', repos = 'https://cran.r-project.org', type = 'source', dependencies = TRUE)" \
     && R -e "install.packages(c('gridExtra', 'tidyr', 'dplyr', 'forcats'), repos = 'https://cran.r-project.org', type = 'source', dependencies = TRUE)" \
     && R -e "install.packages('car', repos = 'https://cran.r-project.org', type = 'source', dependencies = TRUE)" \
