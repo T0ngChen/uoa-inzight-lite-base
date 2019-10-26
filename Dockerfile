@@ -9,10 +9,13 @@ ENV BUILD_DATE "2019-10-25"
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 381BA480 \
     && echo "deb http://deb.debian.org/debian stretch main" | sudo tee -a /etc/apt/sources.list \
     && apt-get update -y -q \
-    && apt-get install automake \
-    && apt-get install libboost-all-dev \
     && apt-get install -y -q \
                        default-jdk \
+                       autoconf\
+                       automake\
+                       autotools-dev \
+                       libsigsegv2 \
+                       m4 \
                        r-cran-rjava \
                        libcurl4-openssl-dev \
                        libv8-3.14-dev \
