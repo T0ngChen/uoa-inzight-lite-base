@@ -10,6 +10,7 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 381BA480 \
     && echo "deb http://deb.debian.org/debian stretch main" | sudo tee -a /etc/apt/sources.list \
     && apt-get update -y -q \
     && apt-get install -y -q \
+                       default-jre\
                        default-jdk \
                        libcurl4-gnutls-dev \
                        r-api-3 \
@@ -33,7 +34,8 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 381BA480 \
                        libgit2-dev \
                        libssh2-1-dev \
                        gfortran \
-                       
+    && R CMD javareconf \
+    && R -e "install.packages('rJava', repos = 'https://cran.r-project.org', type = 'source', dependencies = TRUE)" \
     && R -e "install.packages('RJSONIO', repos = 'https://cran.r-project.org', type = 'source', dependencies = TRUE)" \
     && R -e "install.packages(c('gridExtra', 'tidyr', 'dplyr', 'forcats'), repos = 'https://cran.r-project.org', type = 'source', dependencies = TRUE)" \
     && R -e "install.packages('car', repos = 'https://cran.r-project.org', type = 'source', dependencies = TRUE)" \
