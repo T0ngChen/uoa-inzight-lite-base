@@ -11,11 +11,8 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 381BA480 \
     && apt-get update -y -q \
     && apt-get install -y -q \
                        default-jdk \
-                       autoconf\
-                       automake\
-                       autotools-dev \
-                       libsigsegv2 \
-                       m4 \
+                       libcurl4-gnutls-dev \
+                       r-api-3 \
                        r-cran-rjava \
                        libcurl4-openssl-dev \
                        libv8-3.14-dev \
