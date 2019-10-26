@@ -13,8 +13,6 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 381BA480 \
                        default-jre\
                        default-jdk \
                        libcurl4-gnutls-dev \
-                       r-api-3 \
-                       r-cran-rjava \
                        libcurl4-openssl-dev \
                        libv8-3.14-dev \
                        libgdal-dev \
